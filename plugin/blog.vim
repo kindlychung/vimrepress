@@ -456,7 +456,7 @@ class ContentStruct(object):
         content = self.buffer_meta.get("content", ' ')\
                 .encode('utf-8').splitlines()
         vim.current.buffer.append(content)
-        vim.command('setl ft=html')
+        vim.command('setl ft=markdown')
         vim.command('setl wrap')
 
     def update_buffer_meta(self):
@@ -694,7 +694,7 @@ def blog_wise_open_view():
         vim.command(":new")
     vim.command('setl syntax=blogsyntax')
     vim.command('setl completefunc=Completable')
-    vim.command('setl ft=html')
+    vim.command('setl ft=markdown')
     vim.command('setl wrap')
 
 
@@ -774,7 +774,7 @@ def blog_edit(edit_type, post_id):
     vim.current.window.cursor = (cp.POST_BEGIN, 0)
     vim.command('setl nomodified')
     vim.command('setl textwidth=0')
-    vim.command('setl ft=html')
+    vim.command('setl ft=markdown')
     vim.command('setl wrap')
     for v in G.LIST_VIEW_KEY_MAP.values():
         if vim.eval("mapcheck('%s')" % v):
@@ -822,7 +822,7 @@ def blog_list_on_key_press(action, edit_type):
             vim.current.buffer.append(G.MARKER['more'])
             vim.command("setl nomodified")
             vim.command("setl nomodifiable")
-            vim.command('setl ft=html')
+            vim.command('setl ft=markdown')
             vim.command('setl wrap')
             return
         else:

@@ -8,7 +8,7 @@ This is a modified version of [vimscript 3510](http://www.vim.org/scripts/script
 
 I changed a few things, which IMHO makes this addon more userful:
 
-* Automatically set filetype of post to html
+* Automatically set filetype of post to markdown, this makes sense because markdown is the format you are using.
 * Automatically set wrap
 * Added `/usr/local/lib/python2.7/site-packages/` to `sys.path`, so fixed the "python-markdown required" error in Mac OSX 10.9
 
