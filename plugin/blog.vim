@@ -13,8 +13,8 @@
 "
 " You should have received a copy of the GNU General Public License
 " along with this program; if not, write to the Free Software Foundation,
-" Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.  
-" 
+" Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+"
 " Contributors:	Adrien Friggeri <adrien@friggeri.net>
 "               Pigeond <http://pigeond.net/blog/>
 "               Justin Sattery <justin.slattery@fzysqr.com>
@@ -30,8 +30,8 @@
 "           http://fzysqr.com/
 "           http://apt-blog.net
 "
-" VimRepress 
-"    - A mod of a mod of a mod of Vimpress.   
+" VimRepress
+"    - A mod of a mod of a mod of Vimpress.
 "    - A vim plugin fot writting your wordpress blog.
 "    - Write with Markdown, control posts format precisely.
 "    - Stores Markdown rawtext in wordpress custom fields.
@@ -88,7 +88,10 @@ import os
 import mimetypes
 import webbrowser
 import tempfile
+import sys
 from ConfigParser import SafeConfigParser
+
+sys.path.insert(1, "/usr/local/lib/python2.7/site-packages")
 
 try:
     import markdown
@@ -98,7 +101,7 @@ except ImportError:
     except ImportError:
         class markdown_stub(object):
             def markdown(self, n):
-                raise VimPressException("The package python-markdown is "
+                raise VimPressException("Twice import error. The package python-markdown is "
                         "required and is either not present or not properly "
                         "installed.")
 
@@ -453,6 +456,8 @@ class ContentStruct(object):
         content = self.buffer_meta.get("content", ' ')\
                 .encode('utf-8').splitlines()
         vim.current.buffer.append(content)
+        vim.command('setl ft=html')
+        vim.command('setl wrap')
 
     def update_buffer_meta(self):
         """
@@ -689,6 +694,8 @@ def blog_wise_open_view():
         vim.command(":new")
     vim.command('setl syntax=blogsyntax')
     vim.command('setl completefunc=Completable')
+    vim.command('setl ft=html')
+    vim.command('setl wrap')
 
 
 @vim_encoding_check
@@ -767,6 +774,8 @@ def blog_edit(edit_type, post_id):
     vim.current.window.cursor = (cp.POST_BEGIN, 0)
     vim.command('setl nomodified')
     vim.command('setl textwidth=0')
+    vim.command('setl ft=html')
+    vim.command('setl wrap')
     for v in G.LIST_VIEW_KEY_MAP.values():
         if vim.eval("mapcheck('%s')" % v):
             vim.command('unmap <buffer> %s' % v)
@@ -813,6 +822,8 @@ def blog_list_on_key_press(action, edit_type):
             vim.current.buffer.append(G.MARKER['more'])
             vim.command("setl nomodified")
             vim.command("setl nomodifiable")
+            vim.command('setl ft=html')
+            vim.command('setl wrap')
             return
         else:
             raise VimPressException("Move cursor to a post/page line and press Enter.")
