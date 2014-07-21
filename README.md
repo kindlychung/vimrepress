@@ -11,6 +11,7 @@ I changed a few things, which IMHO makes this addon more userful:
 * Automatically set filetype of post to markdown, this makes sense because markdown is the format you are using.
 * Automatically set wrap
 * Added `/usr/local/lib/python2.7/site-packages/` to `sys.path`, so fixed the "python-markdown required" error in Mac OSX 10.9
+* Make sure only window is open at any time (split window for a blog list, another for a new post, and this splitting can go on like crazy, it really drives me nuts, I have to stop this...)
 
 # REQUIREMENT
 
