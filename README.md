@@ -4,14 +4,14 @@ Vimrepress is a plugin for managing wordpress blog from Vim.
 
 This is a modified version of [vimscript 3510](http://www.vim.org/scripts/script.php?script_id=3510)
 
-# CHANGE
+# CHANGEs
 
 I changed a few things, which IMHO makes this addon more userful:
 
 * Automatically set filetype of post to markdown, this makes sense because markdown is the format you are using.
-* Automatically set wrap
+* Automatically set wrap .
 * Added `/usr/local/lib/python2.7/site-packages/` to `sys.path`, so fixed the "python-markdown required" error in Mac OSX 10.9
-* Make sure only window is open at any time (split window for a blog list, another for a new post, and this splitting can go on like crazy, it really drives me nuts, I have to stop this...)
+* Make sure only one window is open at any time (those who don't like cluttered windows will appreciate this one).
 
 # REQUIREMENT
 
