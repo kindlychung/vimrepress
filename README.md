@@ -4,7 +4,7 @@ Vimrepress is a plugin for managing wordpress blog from Vim.
 
 This is a modified version of [vimscript 3510](http://www.vim.org/scripts/script.php?script_id=3510)
 
-# CHANGEs
+# CHANGES
 
 I changed a few things, which IMHO makes this addon more userful:
 
